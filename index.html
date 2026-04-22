@@ -126,6 +126,44 @@
         @media(max-width: 768px) {
             .nav-links { display: none; } /* Simplificado para este demo */
         }
+        /* Logo para Header (Fondo Claro) */
+        .wordmark {
+            font-family: 'Playfair Display', serif; /* Misma fuente de los títulos para marca */
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary); /* Azul Navy */
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* La "L" decorativa */
+        .logo-accent {
+            color: var(--accent); /* Dorado */
+            font-size: 32px; /* Un poco más grande para efecto visual */
+            margin-right: 2px;
+        }
+
+        /* Logo para Footer (Fondo Oscuro) */
+        .wordmark-white {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .wordmark-white .logo-accent {
+            color: var(--accent); /* Mantenemos el dorado para contraste */
+            font-size: 28px;
+        }
+
+        /* Ajuste responsivo para el logo en móvil */
+        @media(max-width: 768px) {
+            .wordmark { font-size: 24px; }
+            .logo-accent { font-size: 28px; }
 
         /* HERO SECTION */
         .hero {
@@ -357,15 +395,15 @@
 <body>
 
     <!-- ASSET INJECTION: HEADER -->
+     <!-- HEADER: LOGO TIPOGRÁFICO -->
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <!-- Usamos la versión segura del logo y fijamos altura -->
-                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" 
-                         alt="Lexikos Traduccions Logo" 
-                         style="height: 60px; width: auto; background: transparent;"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60/0F172A/FFFFFF?text=LEXIKOS';">
+                    <!-- LOGO DE TEXTO -->
+                    <div class="wordmark">
+                        <span class="logo-accent">L</span>EXIKOS
+                    </div>
                 </a>
                 <div class="nav-links">
                     <a href="#soluciones">Soluciones</a>
@@ -531,17 +569,16 @@
     </section>
 
     <!-- FOOTER -->
-    <!-- FOOTER CORREGIDO -->
+    <!-- FOOTER: LOGO TIPOGRÁFICO -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <!-- Añadido filtro de inversión para que se vea bien sobre fondo oscuro -->
-                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" 
-                         alt="Lexikos Logo" 
-                         style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);"
-                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x40/020617/94a3b8?text=LEXIKOS';">
-                    <p>Servicios lingüísticos de élite para empresas con proyección internacional.</p>
+                    <!-- LOGO DE TEXTO (Versión Invertida para fondo oscuro) -->
+                    <div class="wordmark-white">
+                        <span class="logo-accent">L</span>EXIKOS
+                    </div>
+                    <p style="margin-top: 15px;">Servicios lingüísticos de élite para empresas con proyección internacional.</p>
                 </div>
                 <div>
                     <h4 style="color:white; margin-bottom:20px;">Servicios</h4>
