@@ -44,6 +44,46 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
+        /* --- LOGO TIPOGRÁFICO (WORDMARK) --- */
+        
+        /* Logo para Header (Fondo Claro) */
+        .wordmark {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        /* La "L" decorativa */
+        .logo-accent {
+            color: var(--accent); /* Dorado */
+            font-size: 32px; /* Un poco más grande para efecto visual */
+            margin-right: 2px;
+        }
+
+        /* Logo para Footer (Fondo Oscuro) */
+        .wordmark-white {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .wordmark-white .logo-accent {
+            color: var(--accent); /* Mantenemos el dorado para contraste */
+            font-size: 28px;
+        }
+
+        /* --- FIN ESTILOS LOGO --- */
+
         /* UTILIDADES */
         .container {
             max-width: 1200px;
@@ -106,11 +146,6 @@
             align-items: center;
         }
 
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-
         .nav-links {
             display: flex;
             gap: 30px;
@@ -122,48 +157,6 @@
             font-weight: 500;
             color: var(--primary);
         }
-
-        @media(max-width: 768px) {
-            .nav-links { display: none; } /* Simplificado para este demo */
-        }
-        /* Logo para Header (Fondo Claro) */
-        .wordmark {
-            font-family: 'Playfair Display', serif; /* Misma fuente de los títulos para marca */
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary); /* Azul Navy */
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        /* La "L" decorativa */
-        .logo-accent {
-            color: var(--accent); /* Dorado */
-            font-size: 32px; /* Un poco más grande para efecto visual */
-            margin-right: 2px;
-        }
-
-        /* Logo para Footer (Fondo Oscuro) */
-        .wordmark-white {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-        }
-
-        .wordmark-white .logo-accent {
-            color: var(--accent); /* Mantenemos el dorado para contraste */
-            font-size: 28px;
-        }
-
-        /* Ajuste responsivo para el logo en móvil */
-        @media(max-width: 768px) {
-            .wordmark { font-size: 24px; }
-            .logo-accent { font-size: 28px; }
 
         /* HERO SECTION */
         .hero {
@@ -249,11 +242,6 @@
             font-weight: bold;
             margin-right: 15px;
             font-size: 1.2rem;
-        }
-
-        @media(max-width: 768px) {
-            .authority-content { flex-direction: column; }
-            .hero h1 { font-size: 2.5rem; }
         }
 
         /* SERVICES (Benefit Driven) */
@@ -352,6 +340,7 @@
         .faq-answer {
             margin-top: 10px;
             color: #64748b;
+            display: none; /* Oculto por defecto para JS */
         }
 
         /* FINAL CTA */
@@ -378,29 +367,31 @@
             margin-bottom: 40px;
         }
 
-        .footer-logo img {
-            height: 40px;
-            margin-bottom: 20px;
-            filter: grayscale(100%) brightness(200%);
-        }
-
         .copyright {
             text-align: center;
             border-top: 1px solid #1e293b;
             padding-top: 20px;
             font-size: 0.9rem;
         }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .nav-links { display: none; } /* Simplificado para este demo */
+            .hero h1 { font-size: 2.5rem; }
+            .authority-content { flex-direction: column; }
+            .authority-image { margin-top: 30px; }
+            .wordmark { font-size: 24px; }
+            .logo-accent { font-size: 28px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ASSET INJECTION: HEADER -->
-     <!-- HEADER: LOGO TIPOGRÁFICO -->
+    <!-- HEADER -->
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <!-- LOGO DE TEXTO -->
                     <div class="wordmark">
                         <span class="logo-accent">L</span>EXIKOS
                     </div>
@@ -415,7 +406,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION: The Big Promise -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <h1>Expanda su Negocio Sin Barreras Lingüísticas</h1>
@@ -425,7 +416,7 @@
         </div>
     </section>
 
-    <!-- PAIN SECTION: Agitate the Problem -->
+    <!-- PAIN SECTION -->
     <section class="pain-section">
         <div class="container">
             <div class="text-center" style="max-width: 800px; margin: 0 auto;">
@@ -449,7 +440,7 @@
         </div>
     </section>
 
-    <!-- AUTHORITY & SOLUTION SECTION -->
+    <!-- AUTHORITY SECTION -->
     <section class="authority-section" id="soluciones">
         <div class="container">
             <div class="authority-content">
@@ -465,14 +456,13 @@
                     <a href="#contacto" class="btn btn-primary" style="margin-top: 30px;">Ver Nuestro Proceso</a>
                 </div>
                 <div class="authority-image">
-                    <!-- Emocional & Professional Hero Image -->
                     <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Equipo de profesionales revisando documentos">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES (Benefits Driven) -->
+    <!-- SERVICES -->
     <section class="services-section">
         <div class="container">
             <h2 class="text-center">Soluciones que Generan Ingresos</h2>
@@ -497,12 +487,11 @@
         </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
+    <!-- TESTIMONIALS -->
     <section class="testimonials" id="clientes">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 50px;">Empresas que Confían en Nosotros</h2>
             <div class="testimonial-slider">
-                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <p>"La rapidez de Lexikos nos permitió cerrar un contrato en Londres 48 horas antes de la competencia. Impresionante."</p>
                     <div class="client-info">
@@ -513,7 +502,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <p>"Necesitábamos traducciones médicas con cero margen de error. Su proceso de revisión doble nos da total paz mental."</p>
                     <div class="client-info">
@@ -524,7 +512,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <p>"Transformaron nuestra web corporativa al inglés y alemán. Las conversiones internacionales subieron un 30%."</p>
                     <div class="client-info">
@@ -539,21 +526,21 @@
         </div>
     </section>
 
-    <!-- FAQ (Objection Handling) -->
+    <!-- FAQ -->
     <section class="faq-section">
         <div class="container" style="max-width: 800px;">
             <h2 class="text-center" style="margin-bottom: 50px;">Preguntas Frecuentes</h2>
             <div class="faq-item">
-                <div class="faq-question">¿Qué garantía ofrecéis sobre la calidad? ▼</div>
+                <div class="faq-question">¿Qué garantía ofrecéis sobre la calidad? <span>▼</span></div>
                 <div class="faq-answer">Ofrecemos revisión gratuita ilimitada hasta que quede satisfecho. Además, cubrimos errores graves de traducción bajo nuestra póliza de responsabilidad civil.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">¿Cómo manejáis los documentos confidenciales? ▼</div>
+                <div class="faq-question">¿Cómo manejáis los documentos confidenciales? <span>▼</span></div>
                 <div class="faq-answer">Todos nuestros traductores firman acuerdos de confidencialidad (NDA) y utilizamos plataformas de transferencia encriptadas de extremo a extremo.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">¿Podéis gestionar volúmenes grandes de documentos? ▼</div>
-                <div class="faq-answer">Sí. disponemos de equipos dedicados para proyectos de gran envergadura con gestión de proyecto asignada y herramientas de memoria de traducción para reducir costes a largo plazo.</div>
+                <div class="faq-question">¿Podéis gestionar volúmenes grandes de documentos? <span>▼</span></div>
+                <div class="faq-answer">Sí. disponemos de equipos dedicados para proyectos de gran envergadura con gestión de proyecto asignada y herramientas de memoria de traducción.</div>
             </div>
         </div>
     </section>
@@ -569,16 +556,14 @@
     </section>
 
     <!-- FOOTER -->
-    <!-- FOOTER: LOGO TIPOGRÁFICO -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <!-- LOGO DE TEXTO (Versión Invertida para fondo oscuro) -->
                     <div class="wordmark-white">
                         <span class="logo-accent">L</span>EXIKOS
                     </div>
-                    <p style="margin-top: 15px;">Servicios lingüísticos de élite para empresas con proyección internacional.</p>
+                    <p>Servicios lingüísticos de élite para empresas con proyección internacional.</p>
                 </div>
                 <div>
                     <h4 style="color:white; margin-bottom:20px;">Servicios</h4>
@@ -602,16 +587,16 @@
     </footer>
 
     <script>
-        // Simple interaction for FAQ to show functionality without external libraries
+        // Simple interaction for FAQ
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', event => {
                 const answer = item.nextElementSibling;
                 if (answer.style.display === "block") {
                     answer.style.display = "none";
-                    item.innerHTML = item.innerHTML.replace('▲', '▼');
+                    item.querySelector('span').innerHTML = '▼';
                 } else {
                     answer.style.display = "block";
-                    item.innerHTML = item.innerHTML.replace('▼', '▲');
+                    item.querySelector('span').innerHTML = '▲';
                 }
             })
         });
