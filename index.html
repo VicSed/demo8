@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexikos Traduccions | Expansión Global Sin Barreras</title>
+    <meta name="description" content="Servicios de traducción y corrección para empresas. Precisión quirúrgica para sus contratos, webs y documentos legales.">
+    
+    <!-- Fuentes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0F172A; /* Navy profundo: Autoridad, Seguridad */
+            --accent: #D4AF37; /* Dorado: Calidad, Premium */
+            --text: #334155;
+            --bg-light: #F8FAFC;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* UTILIDADES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-cta {
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .text-center { text-align: center; }
+        .highlight { color: var(--accent); }
+
+        /* HEADER */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        @media(max-width: 768px) {
+            .nav-links { display: none; } /* Simplificado para este demo */
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* PAIN / PROBLEM SECTION */
+        .pain-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .pain-card {
+            padding: 30px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+
+        .pain-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        /* SOLUTION / AUTHORITY */
+        .authority-section {
+            padding: 100px 0;
+        }
+
+        .authority-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .authority-text { flex: 1; }
+        .authority-image { flex: 1; }
+
+        .authority-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 20px 20px 0px var(--accent);
+        }
+
+        .checklist li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        @media(max-width: 768px) {
+            .authority-content { flex-direction: column; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        /* SERVICES (Benefit Driven) */
+        .services-section {
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .services-section h2 { color: var(--white); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* SOCIAL PROOF */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* FAQ & OBJECTIONS */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .faq-answer {
+            margin-top: 10px;
+            color: #64748b;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta h2 { color: var(--white); margin-bottom: 30px; }
+
+        /* FOOTER */
+        footer {
+            background-color: #020617;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+            filter: grayscale(100%) brightness(200%);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ASSET INJECTION: HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <!-- Placeholder Logo -->
+                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" alt="Lexikos Traduccions Logo">
+                </a>
+                <div class="nav-links">
+                    <a href="#soluciones">Soluciones</a>
+                    <a href="#proceso">Nuestro Proceso</a>
+                    <a href="#clientes">Casos de Éxito</a>
+                    <a href="#contacto" class="btn btn-primary">Pedir Presupuesto</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: The Big Promise -->
+    <section class="hero">
+        <div class="container">
+            <h1>Expanda su Negocio Sin Barreras Lingüísticas</h1>
+            <p>Traducciones técnicas y legales con precisión quirúrgica. No arriesgue su contrato internacional por una mala interpretación.</p>
+            <a href="#contacto" class="btn btn-cta">Obtener Presupuesto en 2h</a>
+            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">* Respuesta garantizada o 10% de descuento.</p>
+        </div>
+    </section>
+
+    <!-- PAIN SECTION: Agitate the Problem -->
+    <section class="pain-section">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem;">¿Le suena familiar?</h2>
+                <p>Las empresas exitosas no fallan por su producto, fallan por la comunicación.</p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>❌ El Riesgo Legal</h3>
+                    <p>Un solo término mal traducido en un contrato puede anular cláusulas vitales y costarle miles en litigios.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>⏳ Pérdida de Tiempo</h3>
+                    <p>Procesos internos lentos esperando revisiones que nunca llegan, retrasando el lanzamiento de su producto.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>📉 Imagen Amateur</h3>
+                    <p>Su sitio web o manual de usuario parece traducido por un robot, alejando a clientes potenciales de alto nivel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHORITY & SOLUTION SECTION -->
+    <section class="authority-section" id="soluciones">
+        <div class="container">
+            <div class="authority-content">
+                <div class="authority-text">
+                    <span class="highlight" style="font-weight: 700; text-transform: uppercase;">Precisión Certificada</span>
+                    <h2 style="font-size: 2.5rem; margin: 20px 0;">Traducción Estratégica, No Literal</h2>
+                    <p style="margin-bottom: 30px;">En Lexikos, no solo cambiamos palabras. Adaptamos su mensaje al contexto cultural y legal del mercado de destino. Nuestro sistema de "Doble Revisión Nativa" garantiza:</p>
+                    <ul class="checklist">
+                        <li><strong>Exactitud Técnica:</strong> Traductores expertos en su sector (Legal, Técnico, Médico).</li>
+                        <li><strong>Confidencialidad Absoluta:</strong> Protocolos de seguridad de datos de nivel bancario.</li>
+                        <li><strong>Entrega Puntual:</strong> Su expansión no puede esperar. Nosotros tampoco.</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary" style="margin-top: 30px;">Ver Nuestro Proceso</a>
+                </div>
+                <div class="authority-image">
+                    <!-- Emocional & Professional Hero Image -->
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Equipo de profesionales revisando documentos">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (Benefits Driven) -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="text-center">Soluciones que Generan Ingresos</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏛️ Traducción Jurada y Legal</h3>
+                    <p>Contratos, sentencias y testamentos con validez legal internacional. Proteja su empresa.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📈 Localización Web y SEO</h3>
+                    <p>Multiplique sus leads internacionales. Adaptamos su web para que venda en Berlín, Nueva York o Tokio.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🧪 Traducción Técnica</h3>
+                    <p>Manuales, fichas técnicas y patentes. Terminología exacta para ingenieros y especialistas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>✍️ Corrección y Edición</h3>
+                    <p>Perfeccione sus comunicaciones corporativas para transmitir una imagen de marca de lujo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="testimonials" id="clientes">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 50px;">Empresas que Confían en Nosotros</h2>
+            <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p>"La rapidez de Lexikos nos permitió cerrar un contrato en Londres 48 horas antes de la competencia. Impresionante."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">JM</div>
+                        <div>
+                            <strong>Jordi M.</strong><br>
+                            <small>Director Export, TechGlobal</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p>"Necesitábamos traducciones médicas con cero margen de error. Su proceso de revisión doble nos da total paz mental."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">CL</div>
+                        <div>
+                            <strong>Clara L.</strong><br>
+                            <small>Directora Médica, BioLab</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p>"Transformaron nuestra web corporativa al inglés y alemán. Las conversiones internacionales subieron un 30%."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">AR</div>
+                        <div>
+                            <strong>Albert R.</strong><br>
+                            <small>CEO, Industrial Solutions</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Objection Handling) -->
+    <section class="faq-section">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="text-center" style="margin-bottom: 50px;">Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">¿Qué garantía ofrecéis sobre la calidad? ▼</div>
+                <div class="faq-answer">Ofrecemos revisión gratuita ilimitada hasta que quede satisfecho. Además, cubrimos errores graves de traducción bajo nuestra póliza de responsabilidad civil.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo manejáis los documentos confidenciales? ▼</div>
+                <div class="faq-answer">Todos nuestros traductores firman acuerdos de confidencialidad (NDA) y utilizamos plataformas de transferencia encriptadas de extremo a extremo.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Podéis gestionar volúmenes grandes de documentos? ▼</div>
+                <div class="faq-answer">Sí. disponemos de equipos dedicados para proyectos de gran envergadura con gestión de proyecto asignada y herramientas de memoria de traducción para reducir costes a largo plazo.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="contacto">
+        <div class="container">
+            <h2>¿Listo para romper fronteras?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;">Deje de perder oportunidades por culpa del idioma. Hable con un experto hoy.</p>
+            <a href="mailto:info@lexikostrad.com?subject=Solicitud%20Presupuesto%20Web" class="btn btn-cta">Solicitar Consultoría Gratuita</a>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Sin compromiso de compra.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" alt="Lexikos Logo">
+                    <p>Servicios lingüísticos de élite para empresas con proyección internacional.</p>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:20px;">Servicios</h4>
+                    <ul>
+                        <li style="margin-bottom:10px;"><a href="#">Traducción Jurada</a></li>
+                        <li style="margin-bottom:10px;"><a href="#">Traducción Técnica</a></li>
+                        <li style="margin-bottom:10px;"><a href="#">Localización Web</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:20px;">Contacto</h4>
+                    <p>info@lexikostrad.com</p>
+                    <p>+34 93X XX XX XX</p>
+                    <p>Barcelona, Cataluña</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lexikos Traduccions. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interaction for FAQ to show functionality without external libraries
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const answer = item.nextElementSibling;
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    item.innerHTML = item.innerHTML.replace('▲', '▼');
+                } else {
+                    answer.style.display = "block";
+                    item.innerHTML = item.innerHTML.replace('▼', '▲');
+                }
+            })
+        });
+    </script>
+</body>
+</html>
