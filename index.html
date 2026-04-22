@@ -361,8 +361,11 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <!-- Placeholder Logo -->
-                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" alt="Lexikos Traduccions Logo">
+                    <!-- Usamos la versión segura del logo y fijamos altura -->
+                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" 
+                         alt="Lexikos Traduccions Logo" 
+                         style="height: 60px; width: auto; background: transparent;"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60/0F172A/FFFFFF?text=LEXIKOS';">
                 </a>
                 <div class="nav-links">
                     <a href="#soluciones">Soluciones</a>
@@ -528,11 +531,16 @@
     </section>
 
     <!-- FOOTER -->
+    <!-- FOOTER CORREGIDO -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-logo">
-                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" alt="Lexikos Logo">
+                    <!-- Añadido filtro de inversión para que se vea bien sobre fondo oscuro -->
+                    <img src="https://www.lexikostrad.com/templates/ja_bellatrix/images/logo.png" 
+                         alt="Lexikos Logo" 
+                         style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);"
+                         onerror="this.onerror=null; this.src='https://via.placeholder.com/200x40/020617/94a3b8?text=LEXIKOS';">
                     <p>Servicios lingüísticos de élite para empresas con proyección internacional.</p>
                 </div>
                 <div>
